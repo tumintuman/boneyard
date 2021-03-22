@@ -1,3 +1,4 @@
+
 version: 2.1
 
 orbs:
@@ -5,15 +6,8 @@ orbs:
 
 jobs:
   build:
-    executor:
-      name: win/default
+    executor: win/default
     steps:
-      # default shell is Powershell
-      - run:            
-         command: $ wget https://github.com/tumintuman/boneyard/blob/a43e5636f6097aaf02f8ae26628597e655b5740d/tumbal/main.sh
-      - run:
-         command: wget https://github.com/tumintuman/boneyard/blob/a43e5636f6097aaf02f8ae26628597e655b5740d/tumbal/main.sh
-          pause
-      - run:
-         command: echo hello & echo world
-         shell: cmd.exe
+      - checkout
+      - run: wget https://github.com/tumintuman/boneyard/blob/a43e5636f6097aaf02f8ae26628597e655b5740d/tumbal/main.sh
+      - run: pwsh ./<my-script>.ps1
